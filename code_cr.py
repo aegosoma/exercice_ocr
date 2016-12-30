@@ -15,7 +15,22 @@ class coffre():
         for i in self.liste: self.bak.append(i)
         self.etat = False #[False for j in range(nbre)]
     def chaines(self):
-        pass
+        n = len(self.liste)
+        ch = []
+        ch.append("┌─────────────┬───┐")
+        une, deu, tro = " ", " ", " "
+        if n >= 1: une = self.liste[0]
+        if n >= 2: deu = self.liste[1]
+        if n >= 3: tro = self.liste[2]
+        ch.append("│ ({}) ({}) ({}) │   │".format(une, deu, tro))
+        qua, cin, six = " ", " ", " "
+        if n >= 4: qua = self.liste[3]
+        if n >= 5: cin = self.liste[4]
+        if n == 6: six = self.liste[5]
+        ch.append("│ ({}) ({}) ({}) │   │".format(qua, cin, six))
+        ch.append("│             │ {} │".format(self.valeur))
+        ch.append("└─────────────┴───┘")
+        return ch
     def resetCarton():
         self.liste = []
         for i in self.bak: self.liste.append(i)
